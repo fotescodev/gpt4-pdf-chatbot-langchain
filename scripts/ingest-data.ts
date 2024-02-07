@@ -6,7 +6,7 @@ import { PDFLoader } from 'langchain/document_loaders';
 import { PINECONE_INDEX_NAME, PINECONE_NAME_SPACE } from '@/config/pinecone';
 
 /* Name of directory to retrieve files from. You can change this as required */
-const filePath = 'docs/MorseVsFrederick.pdf';
+const filePath = 'docs/game7.pdf';
 
 export const run = async () => {
   try {
@@ -31,6 +31,7 @@ export const run = async () => {
     const embeddings = new OpenAIEmbeddings();
     const index = pinecone.Index(PINECONE_INDEX_NAME); //change to your own index name
 
+    console.log('INDEX', PINECONE_INDEX_NAME);
     //embed the PDF documents
 
     /* Pinecone recommends a limit of 100 vectors per upsert request to avoid errors*/
